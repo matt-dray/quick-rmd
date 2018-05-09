@@ -1,0 +1,79 @@
+---
+title: "Automate! Reproduce! Win!"
+subtitle: "RMarkdown"
+author: "Matt Dray"
+date: "14 May 2018"
+output:
+  ioslides_presentation:
+    theme: cerulean
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, error = FALSE)
+library(dplyr)
+library(leaflet)
+```
+
+## TL;DR
+
+## Why?
+
+## Process
+
+1. Open a file with the .Rmd (<u>R</u> <u>M</u>ark<u>d</u>own) extension
+2. Write your report using R Markdown
+3. Embed code that calculates values or produces plots and tables, for example
+4. Use the `knitr` package to *knit* the document, rendering your R Markdown into a 'proper' document for sharing
+
+## Open
+
+File > New File > R Markdown
+
+## Write
+
+Plain text that's been 'marked-up'
+
+## Output
+
+YAML
+
+# code
+
+## inline
+
+## chunks
+
+````
+```{r quake-map}`r ''`
+library(leaflet)
+library(dplyr)
+
+quakes %>%
+  dplyr::slice(1:10) %>%
+  leaflet::leaflet() %>%
+  leaflet::addProviderTiles(providers$OpenStreetMap) %>%
+  leaflet::addMarkers(popup = ~paste("Magnitude", mag))
+```
+````
+
+## chunks
+
+```{r}
+quakes %>% 
+  dplyr::slice(1:10) %>%
+  leaflet::leaflet() %>%
+  leaflet::addProviderTiles(providers$OpenStreetMap) %>% 
+  leaflet::addMarkers(popup = ~paste("Magnitude", mag))
+```
+
+## chunks
+
+```{r echo=TRUE}
+iris %>%
+  dplyr::select(Species, Petal.Length, Sepal.Length) %>% 
+  dplyr::slice(1:5)
+```
+
+## Render
+
+Hit 'knit'
