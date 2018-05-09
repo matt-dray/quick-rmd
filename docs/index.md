@@ -34,4 +34,4 @@ summary(cars)
 Slide With Plot
 ========================================================
 
-![plot of chunk unnamed-chunk-2](test-file-figure/unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-2](index-figure/unnamed-chunk-2-1.png)
