@@ -1,37 +1,74 @@
-test-file
+Automate, reproduce, knit, win!
 ========================================================
-author: 
-date: 
+author: Matt Dray
+date: 14 May 2018
 autosize: true
 
-First Slide
+
+
+Current process (exaggerated)
 ========================================================
 
-For more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.
+1. Receive non-machine-readable data in Excel format
+2. Use a pre-prepared Excel template to reformat the data
+3. Generate figures, tables and plots
+4. Copy and paste to ~100-page Word document
+5. Find error/need to alter something
+6. Spend ages re-copying and re-pasting all instances
+7. Get confused about the current working version
+7. Repeat steps 5 to 7 until 4am
+8. Eventually document is as ready as it can be
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-Slide With Code
+Suggested process
 ========================================================
 
+1. Receive machine-readable data in Excel format
+2. Run a pre-prepared *R Markdown* file
+3. Make minor tweaks if needed and re-render stress-free
+4. Use the saved time to prepare more informative commentary and have a cup of tea
 
-```r
-summary(cars)
-```
-
-```
-     speed           dist       
- Min.   : 4.0   Min.   :  2.00  
- 1st Qu.:12.0   1st Qu.: 26.00  
- Median :15.0   Median : 36.00  
- Mean   :15.4   Mean   : 42.98  
- 3rd Qu.:19.0   3rd Qu.: 56.00  
- Max.   :25.0   Max.   :120.00  
-```
-
-Slide With Plot
+R Markdown?
 ========================================================
 
-![plot of chunk unnamed-chunk-2](index-figure/unnamed-chunk-2-1.png)
+You write plain text. You format it using symbols. You embed your R code.
+
+Then you simply click a button to render the R Markdown into a 'proper' document for sharing.
+
+This means that your commentary and code are *in the same place*.
+
+Formatting in R Markdown
+========================================================
+
+You type | You get
+--- | ---
+`*italic*` | *italic*
+`**bold**` | **bold**
+`super^script` | super^script
+`![](img/cat.png)` | ![](img/cat.png)
+
+More examples are availabe in [this cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
+
+Code in R Markdown
+========================================================
+
+Two ways:
+
+1. inline code
+2. in chunks
+
+You write <code>&grave;r 1 + 1&grave;</code> and it will render as '2'.
+
+
+Basic process
+========================================================
+
+1. Open a file with the .Rmd (<u>R</u> <u>M</u>ark<u>d</u>own) extension
+2. Write your report using R Markdown
+3. Embed code that calculates values or produces plots and tables, for example
+4. Use the `knitr` package to *knit* the document, rendering your R Markdown into a 'proper' document for sharing
+
+1. File > New File > R Markdown
+
+1. You write a plain text file and format it with symbols
+2. You intersperse it with your R code
+3. You render the file and it spits out your fully-formed document
