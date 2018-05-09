@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>test-file</title>
+  <title>Automate, reproduce, win!</title>
     
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>test-file</h1><p></p>
+<h1>Automate, reproduce, win!</h1><p>Matt Dray<br/>14 May 2018</p>
 
 <div class="slideContent" >
 
@@ -792,41 +792,127 @@ hljs.initHighlightingOnLoad();
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>First Slide</h3>
+<h3>The problem is the process</h3>
 <div class="slideContent" >
-<p>For more details on authoring R presentations please visit <a href="https://support.rstudio.com/hc/en-us/articles/200486468">https://support.rstudio.com/hc/en-us/articles/200486468</a>.</p>
+<p>It&#39;s looooong and error-prone.</p>
 
+<ol>
+<li>Receive non-machine-readable data in Excel format</li>
+<li>Use a pre-prepared Excel template to reformat the data</li>
+<li>Generate figures, tables and plots</li>
+<li>Copy and paste to ~100-page Word document</li>
+<li>Find error/need to alter something</li>
+<li>Spend ages re-copying and re-pasting all instances</li>
+<li>Get confused about the current working version</li>
+<li>Repeat steps 5 to 7 until 4am</li>
+<li>Eventually document is as ready as it can be</li>
+</ol>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Minimise the risk</h3>
+<div class="slideContent" >
+<p>We can reduce human error and go faster.</p>
+
+<ol>
+<li>Receive machine-readable data in Excel format</li>
+<li>Run a pre-prepared <em>R Markdown</em> file</li>
+<li>Make minor tweaks if needed and re-render stress-free</li>
+<li>Use the saved time to prepare more informative commentary and have a cup of tea</li>
+</ol>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>What&#x27;s R Markdown?</h3>
+<div class="slideContent" >
 <ul>
-<li>Bullet 1</li>
-<li>Bullet 2</li>
-<li>Bullet 3</li>
+<li>Write plain text</li>
+<li>Format it with symbols (<code>*</code>, <code>[]</code>, <code>^</code>, etc)</li>
+<li>Embed R code</li>
+<li>Click a button to render into HTML, Word or PDF</li>
 </ul>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Slide With Code</h3>
+<h3>Formatting</h3>
 <div class="slideContent" >
-<pre><code class="r">summary(cars)
-</code></pre>
+<table><thead>
+<tr>
+<th>You type</th>
+<th>You get</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>*italic*</code></td>
+<td><em>italic</em></td>
+</tr>
+<tr>
+<td><code>**bold**</code></td>
+<td><strong>bold</strong></td>
+</tr>
+<tr>
+<td><code>super^script</code></td>
+<td>super<sup>script</sup></td>
+</tr>
+<tr>
+<td><code>* bullet</code></td>
+<td><ul><li>bullet</li></ul></td>
+</tr>
+<tr>
+<td><code>[Link]()</code></td>
+<td><a href="www.gov.uk">Link</a></td>
+</tr>
+<tr>
+<td><code>![](img/cat.png)</code></td>
+<td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQwAAADaCAIAAADc/utCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2HAY/l8WUAABfdSURBVHhe7Z0rbBxXF8ct9aFWrZKAgJSkHyhYtVJVGFBgqSAmkQK3qCaVQioVVKqlAkNDSyUrlQQaGhoWGlpFgVtmuDCw318+x0fHd153Zu5r7p4fSHbujGfmPv73PObO7sF/hmH0YiIxjAFMJIYxgInEMAYwkRjGACYSwxjARGIYA5hIDGMAE4lhDGAiMYwBTCTGfvH27dv/3YEPXDSEicSoHxLGwUM++eSTzWbDR/RiIjHqZLfbnZ6eNrXhcHZ2xn/QTTCRXF1dyQ3hw6+//np7e8v7DCMhJI8nT57QaGzy4sUL/nRnT/jPugkmkmfPnvFl78HlTSpGYmAZWuWxXq/fv3/PB/33Hz7zjoNhCQQTCV+wAaTy5s2bv//+m48zjDhst1ttIkB/dM4HZREJPl9eXn733Xe8fQ9Mzfn5OR1sGAFp+ler1WowecWH5hIJ0SoVVIZ3G0YIHP8KnotPLA74D/KKhLi5uUFkopMMx8fH5n0Z83n37p3jX2EThbx7CP6bEkRCIE46OjriI+6A93VycqJjKcPwB647jAYPJj//yoH/shyRAOjh9evXfNA9qNv19TUfYRh+wGnnATTGv3Lgvy9KJETT+wJmUgx/tEJG+VcajEM6A+IZLuomtUgEGEcnHWEmxRhEKwQO/OS5Fd4anQTeDRd1k00k4Pb21glUptlNYx/A3H98fMwDZZ5CgHj+Po8lcoqEcEwK2oJ3GMYdm83G8c9nKgTIkPMZb8FEIqmGCaMcJkVyeT7mz9gftH9FzFfIqIAEBBPJer2mC08b5XLfwB44GoREDuDZs2eh1jeNCkhAMJHoUc5FI9EeZzU6QbM0s3mTwXnQr2gcjJXdbsfXqBQ0nbgn862HZlRAAoKJBNCFAW+PBK2g4/hF6ySsNsZSgZYwGGRNE1zxgAoBsmId3cRFvRQkErB0nWy325OTk1za6GKJmkEz0s3DmEx7EtIFAmA6s2dAAsoSCVioTi4uLvRtCwE9aYCZ7+3bt7BRh4eHfIHxlK8Z3Bvfa4SnApeXl3RmtCEXDVGcSMCCdEKLtMV8C2G1MZZRWipNMzpYxzDg0nCIAtE+XDREiSIBjk4w4Ep7w5HkoZ/wEOv1+urqig8qg7GawZG5Whu3GilYFyRqh/HnoiFCikSqF6SJHZ3g5Ohp3peVVnnAdMCNRkzCBxWMj2bQ2umlgh6PF6wTOKd03IhF9fx/CGRMe35TyyCokuieQAfzvhxg0DTlQVMvwAcu6gWHFfU+c49mIJVkt4qpB9eS64YN1gXUlC6BXuAiD0KKRO7APyTyAZHWarWSM2fxBK6vr+VpaTzyujpE16vXUdXivF0YbwmfLOwYdYmQIsFkQHcAuCgQmO34vGn9LpgyXKs5aBKQVzCtUgFQi+cDOE9gMWTgEjGCdUJGEYbQqIYNPJrpJgBvh0NsMRHb70Ln4YrNuLyVURMt7tzfNyNwcCgPdhRdtwqfk4+YB/SG8connfR24ShQF7oQfHgu8mMxIgHa7xpbz34QcKN7jo+PfcZuPN+ja/4mMtqWplrmf1GBpGIBpBL7LQk4zCLIsenHJYkEiMUEM+ezUcJA+8INQEcmezOsRzC44SyGBc6nzjeCyfOFVgjcrUhhuoBAQHoZrcql3gQezSLWeMlQvQ5y7PQzShggdsDqA4amrrIQyucZRTPfSKCh/N/B1gqB6jz/ag5yzxifEwQZWCSSRoznXOr5DHUebOKxwoBHh3k6b4qplaZtQY3itXMPXbGKzzvYsigLpFGIfoQ/rbkCi0QmCQxKLooAWpYSsv1XgZ3xFAbAXIiOj23356PnCIBpIovrRbSqpcv2OomsNArBJST7MnlMBhYJWoduCA3HRdHomeyd/ugHR/qvUCgBdLzjgGFuQjAKM57FsABc18kEOg4YWlhccZBGIQA3RlfE/Uy+YmCR4D4ShCU90Nym+wOfWzO5KMdQw/H8l0sDdpJrokCleHdyMGdpE0eQA4Zd0iP4EDuRpZG5cs5FA4sEJAhLWml1rtBJgDfuwaSCqbfAqGMsmJKa45L3ZaLVAfvqq6/oA/oipUOLm6HrQplzujt8m6YJSzT+zhUOy+WQRAI6cVwv3pEbtPPjx4/5nu55+fJlylQh5ErXnflULXybpgxLaEGumHIAKwFTpksIjKRkjzjSo10vLsrNZrN59OgR39NDnHAlEtrHm/nyQvg2TRaWoBt0sIGLYqwARzN1eFaDkE7evHnD21kRb4KAWp4+fcob98D1ijptiRmZ8PTQIcrEkyAscboBftTl5aV2ukgzfLSREN018CZkDIzKF89EmxEMDC6dShSRSDNFCkucbjg/P0eJNiBQS/lPPKpEdw2m8FafCrJp5ovDLi4OaEZAFJFEDUt0N0AM8G6bThcfaiRE//yywPsaYKZv5uXQs7x7NlAdnXO+GQFRRBIvLNGLGoC2HsAMSEaaChnMKTUdMHhf8wNIyfxi9uSieUQRCQgelvTnedHQ8eIfwwfKHADM4qMiDUyp2qrM9wVksVao9yliiUScoiBhifN2jsbkUQHQibO4eI7rJacKFefEEknAsEQHIRqTR2U4y5yn6QS+lsyn+Myl84glEh2WTLvX3W53cXHR+vUL8OWWtSTR8MRxvcbqBH8uMoNzzqWziSUSIFZvlGsIRcElbQ0/oDo4b6GmB6NMHJ2M6m5xOjBUAqZwIooE1aM7BoNVpQUmkrlz2J8H5waATiTxM2qGlfET9jFARJEAH2NC8mhdzU5gXkGr8dHGfqBnWE+nK97Tubgi0VVt2oFWecBQQlGyvr3rqa1RPXp1s4/T9eb+S6dOTk64KBBxRQLEv3TeMj0/P3fkIdmq7XYrQX+QJ6bGEhnrdImvFXzdZHSRYNzTraPCVII66EwfcJK5ErUHTFAYS8Q/rI26Eiq6SOBTiVn4559/tA0FzWcd8uA2bILCWCg+YS2I52uB6CIB4nF9+umn9AHA12pNQURKUBgLRRuTriGhF8bHeEclhUjE4xLW63VrPjeq0TQWingfUAIXPUTMSJCF8U1SiOT333+nOoDnz5/3LH2LajSNhYIInkYF4CLFZrPhfdHSPNFFcvpw5dWXX37Zk9KNl6AwFo14U83wXcYMvHouCk1ckciiZfDRRx/RB5gL3v0Q87WMLmQJXzN8p3IQ73laRJHAGsgEAJX/9ddf9HnQszRfy3DoyQVzacyviYl16p36svsX9z8SSZuAjtGg5lETFMbS6coFy7Dh7QjEOrVUCXWQxx1UAmhTgIRirHA2aqLLmNCDtS4fPghRRKITDvpZoYjesZgS3GtFGYZDlzGJTRSRyPJE593drvDLHiAaPnQZk9hEEQl969Hh4aGTcGitpCW1DH+yGJNYMUkXzUpaUsvwR8+zXBSf1CLRlaSXaewBojEKGi2At+OTWiRALwT+6aef6IP5WoYnkv5J9jp3BpEgUJF1wYL5WoYnXa/xxSODSAB0Ii+dEeZrGZ40X+OLTR6RAB2cmK9l+LPb7XjcpApLsokEfPDBB1TV77//nosMwwMaNoC3I5NTJJ999hnX1R4jGmPoWroRiZwioXoSqDZcTOd9d8NopWflfAxKEQkBqfA+w+gm8SPFbCK5vb3lWj6EdxtGLzxc6haJ/Krdt99+K48Xoy54NmqCBgzg7ZjkEYn+Dhj7jkZjAilj9zwiCfvjqMYekjJ2zyMSWdRoZsSYRsrYPYNI7AUSIwg0igBvRyODSOwFEiMINIoAb0cjg0jsBRIjCDSKAG9HI4NIuGZJkndGxfAwMpEYRhfJssAmEmOpJMsCpx6pkrl78uQJFxnGJJJlgVOLRL5CO836TaNuaCwB3o5DapFAG1QrqIWLDGMqNJYAb8chtUjkF3cTLLkxqofGEuDtOKQWCdfJonYjBDyYTCSG0QUPJhOJYXTBg6kmkVj+1wgLDSfA23FIKhLL/xphoeEEeDsOSUVi+V8jLDScAG/HIalILP9rhIWGE+DtOCQVCVcocpWM/YHHk4nEMFrR30rFRXEwkRhLJdnXiZhIjKWS7OtETCTGUuHBFH84mUiMpcKDyURiGF3wYDKRGEYXPJhMJEYdXF1d/e+OgD9Bw4PJRGIsHagC2uCOD/cTNCm/B9REYkTk9PSUu1zB++aR8ntATSRGLFoVEuonaFJ+D6iJxAgJxR7czYqw0Uji71w3kRghkQm+ScAfxEz8netViURiRPxrv3mdns1mQ/3bBR83m8TfuZ5UJPLlrbe3t1wUjmYP8Q4jFT1mhAg1c/HpUnVx0pF0dHREdcOA5qJAwIbIG10C7zOS0Jyk3r9/7xSG8rj4dFWKBEOZ6nZ4eMhFIWi18uiP4FI0enDMyHq9jjRzJXuNREgqkt1ux5ULWr3VasUnbXB6esoHGZERX7oHKIePnkH6X6VNKhJA1QO8HQLJdbRiEXwa5IcQeoADxkfPQExWsl+lrUEkgE/aRsDMo9GD/iGEVoKYkSy/SluJSPptPR9kROb4+JhbvMHR0VEQM5LlV2krEYn4qa3wQUZkIANJYGpCKQQhu8yGKX+VthKRoA/4vA2CWHnDE3SEY0/Q/kEUAtKH7EQlIgF83oeEmsOMEkgfshP1iKQZlphCaiJLyE6kFokM5eArU87OzujMREArb5RAlpCdSC0SCezscbgxisSLGjWpRRJpZYpRNxl9LZBaJLvdLp7HtW9cXV1hrsG8w9v1ktHXAqlFAszjCoIsH8Skw0WVkuvxiJBBJFV6XIkndWfhM5dWSq7HI0KG9q3S46KwEvVKYB7RgHpdOlwR3lEpuR6PCHkmofo8LpE9wKiNJ36YLP2SRvVp7rwhO5FHJPV5XM5TGmgGTkJwqWjvHGCu4R31kjdkJ/KIpEqPC5O6/HIqgTqGfZtFRgw8kH1IaulJYX7IDrcFk/KEyStbzFdrjgt+M+JLqhoR6u1I/V1vubzzxIQK2TEpy6kAhDdqiskmkipzXIIjFfTQzOBBK2QfvCxifsgOeaDpmq/aAz7Cg2wiqdLj0kAVYi3BarWa7DA4CtmTNWkzQ/abmxvMTY48MCPT5AXHmI/zIJtIQK0el9CMUiaEKAhY+Y/3bF3z5JAdjQxd0d8KKJkcxeUUSd0el4Bq6vnMP0R59+7dixcv+M/2TCHTQnanxYg58iByikR7XDCOXFoj6HJMBFRT4KMT9Ks0DtgrhYCxITs5V7rFEM/AFsFn4yNmkFMkQLyRUT7iEsEQF/cS9OsEXS79jQ9h88iLwD9kh6/uOFfBW8xLJJQiwFwYSpqC/h6asGcuEEcnXSkvFEpmDB/gQvCOvcEzZMewdEI+AHcreIu1iwS2vhn6DII/maAi+d4A/Hn1HoWjk9aUl0TqmBH3UCFAhkRPyI5200M0oHPVpEUksF985dmgGuv1Gifs6Wz462JbUU8urRfopCflpbO9e+hlAd0CXSE7WkaHHxBV1Om1RSStNgSFMC/wEFr3+tCj9YuLCz7o4GC73XJp1TgpL2oWPT5gcOjIveL8/Jzr39ECTv4KbYjBw/ui0SIS6irMdmPVSRmGUSrCwaQcSf7MzNYtCJhQ6W+0w2+//UafAcZH9Z5nEwhA7ENrCzgGJEb40Up7TBLqEThkg7kBHpc4VIN8/fXXoa5ePqhpc8XEfioEyJSBD04LOAYkeP6qn3aRxGCsncGRtT6J1/z4449c4Tv2ViESCTfTFZhnsxgQIZ1IWiHlPH36lBugDailVh9MByEAVpR37BmwqCIDx0ToJkpsQITMIgHOQGkFrVOfTlorjlmDd+8TmCip+s7zdd1E6Q2IkFkkzkD5+OOP6cPPP//sfO8ydMJ/UwVOGufVq1f0ufqVB00wL4gZ0c/XnSbK6IVmE8nu4Xsw1AowF7x9P6fCvNJmTY9Qrq+vZVhQxVFZ2gSYOPi4PQB1l+UFsBVc+lA52eO0PCJBlKazOroV8JkKa51TMTtI9kKncbTl3B+diCsBSYg35Sgnr0JABpE4LpYzT+g5tcpcsDxu18MCoBFkggBkSOtGmwsdkZe2MCepSBwXqyttJWOlvhSwniCadYdO5KFq9cGJYy649GETZcllNUknkh4Xy0Eik5pexnKWrMK54h0P2Z/gpGkummEqHZmdRCLpd7Ec0FhihevwuJwlq5hBe6q/D8FJ01zgX885ND0pRCJzBvB8MliTx+U8MB5csoq9Un1QX3CiFYKabrdbuFu8fUdRCgFxRQIzquvvX/lqPC49ICAVnwkCoJVqDU70048ffvjhjz/+0AZktVp5NlFKIorEmUFHTQ/a46KpFG2HcVNgC/agFQIXa1SiRg8mLlo+Op31zTffPH78mD4TH374YZn9G6sDnBl0QppCwlx80KvfijLEPThOxdjb1jEMFy0ctICks7744gv64ID+5aNLIkoH6CAE7ta0VLfO83z++ef0YRE/yu4ksqZ52JhW6M+rWWqgR4WAucBZ3orJhf+gGAKLxAnCZkZgzvItUJoZaf52j5PIwt7S7jkL2q4KNDxol37jqDSdBBMJpk/ULWwWD3+Ok/DpDg5evnzJO4qBulachLGJrD2haUOcJOft7a3T10XpJIxInF+WmRaEtPLnn3/ySQ8OXr16xaVlIJESwKaeLNECy8oxRMJJbwJ0YtfEUaxOAohEvzEDJgchTZwzg6KeLYqHABOnPcOxiaxaaaY3//33X97XQZk6CSASRJZUJQyasNOnLFJ49OgRfSjq2aIjYAJ9bC4WcOyqv2dRoE7mikS3RdhfltFm5JdffqEP5TxbxHTw/PlzuivBFAJubm60XZ3gWTg6wSyc14OYLhLEITqNg1rxjkDoVzr1s8USphYdjQCYUPpiJN69r8Bc6CEBZNaQ0eKE7F04OkHvZ4zxpotE5+yCz6DajJCBEqcOZNfJarXiWzHrcUdz/RXQLaPFg56lwn7wt/pxE8i1jG2iSPRUul6vg48SbUaoBJfQU0tenYhiY9R9WTRT/612VZ6NEv7dhylSpqRcy9gmikQmhhiPwJtmhChKJ0ZTHui1/gBdvy7iH8rrtRdZOn2iSHCvuGMoO8Y82jQjgumkEDDEtTyAT4Cuu8/T6SJ0JiB9p0+PSeIlHCTaaU2XmU7y0nw+6BmLE+g+cRP8Ywyn0/2tUBCmiyQS8GWpIdD0XNTAabJc8dwe4jwfnPb6B1x0+vNRMYZjhbDJO+JTnEjEsJ70/uYq2qi015Ly5vITQD42MRh+9KBjjFEnQaeTwDBIuCgJZYlEd0PXD7gI2eO5/QExuo655688kqlwVGRCpJ+MChKJTivDsHJpLzqew2d7nBcD9EvYxd0AZ+DTLeGVslJuUad9/bsBh+ngBCDoh582vxcNQtt2EEQhhHR3+SFlKSLRad9R3YCDneeyoPUHO41ROC7WqBSWD9PC9ywUIRLMJTKvTFsliTOgR/XaB2DrqSYTw8Vy0CElF5VK/vtD68N6UGMhIuTSqWC2cx5ywQGDfqpPPQUknovlwBcwkQwi73bCmAR5Vwl6cAIVgJObVAaJ7WI58GVMJP3oSSvsY9RWBwxSMR+sleZCrHgGROArmUh6mJDznQCCHHHnBPPBBJpNHB81gUIAX8xE0oOs0UrQJa1S2WcfrNXSgtgulkayNbgZLiqSbCLRa7QSTFpElw+2J49WttstBHB8fNzUBkgpD2IpWeBsIpGH5f1rtCLRNCz1PVqhMKNVDxrY81xxGuYsvomyPa48N6fj9YxDsymVOryvZhTeJKM2NHw3JhKNk2SMF6/74zxaWWKg0hVgOKBqaPCzs7NybCbfmYlEwMydOMnoCSSBm+HbugPjqfBkMe65J8Ag0ocZY+EbNZEIks4C5ShEgCTkHRWhtGQxGQ39dS2tlC8Pgm/XRCJwe7T98Gw5lJYs9nGlCgkwJsAVMJEA55vsuLRgupLFycbioDYKDDDGgkmHK2MiAdrRivEtRPFoNSwERnBwzQxqY7lGowlqSpVCC3NRkSQSCaY9ag4oZImP7Xqk0gUGOiq72WycVZv9T/Sa1KQKB5k60bxcVCSJRAKvAG2BzubtZeITHoSiYm0IMnXydqmUfn8lE0Mz+6ANYSlTp4kkFpDQ+fn569evnSffFQTc+4aJxDAGMJEYxgAmEsMYwERiGAOYSAxjABOJYQxgIjGMAUwkhjGAicQwBjCRGEYv//33f5gM6JGxhipOAAAAAElFTkSuQmCC" alt=""/></td>
+</tr>
+</tbody></table>
 
-<pre><code>     speed           dist       
- Min.   : 4.0   Min.   :  2.00  
- 1st Qu.:12.0   1st Qu.: 26.00  
- Median :15.0   Median : 36.00  
- Mean   :15.4   Mean   : 42.98  
- 3rd Qu.:19.0   3rd Qu.: 56.00  
- Max.   :25.0   Max.   :120.00  
-</code></pre>
+<p>More examples are availabe in <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">this cheatsheet</a>.</p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Slide With Plot</h3>
-<div class="mediaOnly slideContent" >
-<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-2"/></p>
+<h3>Code in R Markdown (1&#x2F;2)</h3>
+<div class="slideContent" >
+<p>You can write some R code in the middle of a sentence!</p>
+
+<p>For example: write <code>&grave;r 1 + 1&grave;</code> in a sentence and it will render as &#39;2&#39;.</p>
+
+<p>Or even: the best Pokemon is </p>
+
+<p>(Don&#39;t worry about the actual code; just know that this is possible.)</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Code in R Markdown (2&#x2F;2)</h3>
+<div class="slideContent" >
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Basic process</h3>
+<div class="slideContent" >
+<ol>
+<li>Open a file with the .Rmd (<u>R</u> <u>M</u>ark<u>d</u>own) extension</li>
+<li>Write your report using R Markdown</li>
+<li>Embed code that calculates values or produces plots and tables, for example</li>
+<li><p>Use the <code>knitr</code> package to <em>knit</em> the document, rendering your R Markdown into a &#39;proper&#39; document for sharing</p></li>
+<li><p>File &gt; New File &gt; R Markdown</p></li>
+<li><p>You write a plain text file and format it with symbols</p></li>
+<li><p>You intersperse it with your R code</p></li>
+<li><p>You render the file and it spits out your fully-formed document</p></li>
+</ol>
 
 </div>
 
