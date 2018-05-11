@@ -1,6 +1,6 @@
 ---
-title: "Automate! Reproduce! Win!"
-subtitle: "R Markdown for reproducible documents"
+title: "Intro to R Markdown"
+subtitle: "Automate! Reproduce! Win!"
 author: "Matt Dray"
 date: "14 May 2018"
 output:
@@ -28,6 +28,10 @@ The Excel-Word approach is looooong and error-prone. Exaggerated example:
 8. Get confused about the current working version
 9. Repeat steps 5 to 7 until 4am
 
+<div class="notes">
+Your choice of Pokemon is *wrong*.
+</div>
+
 ## Minimise the risk
 
 We can reduce human error and go faster with R.
@@ -37,12 +41,14 @@ We can reduce human error and go faster with R.
 3. Make minor tweaks if needed and re-render stress-free
 4. Use the saved time to prepare more informative commentary and have a cup of tea
 
-## What's R Markdown?
+## R Markdown is the answer
 
 - Write plain text in a .Rmd file
-- Format it with symbols (`*`, `[]`, `^`, etc)
+- 'Mark up' with symbols (`*`, `[]`, `^`, etc)
 - Embed your R code
 - Render to an output HTML, Word or PDF document
+
+.Rmd `r emo::ji("arrow_right")` `knitr` `r emo::ji("arrow_right")` .md `r emo::ji("arrow_right")`  `pandoc` `r emo::ji("arrow_right")` .html/.pdf/.docx
 
 In RStudio: Help > Cheatsheets for hints and tips.
 
@@ -57,7 +63,6 @@ You type:
 You get:
 
 > *Italic*, **bold**, super^script^ and a [link](www.gov.uk).
-<p>
 
 
 ## Inline code
@@ -85,6 +90,10 @@ You type:
 ```{r eval=FALSE, echo=TRUE}
 The best Pokemon is `r my_value`
 ```
+
+<div class="notes">
+Your choice of Pokemon is *wrong*.
+</div>
 
 You get:
 
@@ -118,10 +127,9 @@ chickwts %>%
   geom_col(aes(x = feed, y = weight))
 ```
 
-## Basic process
+## How to
 
-I assume you're using RStudio.
-
-1. File > New File > R Markdown
-2. Write your text and embed your code.
-4. Render the document
+1. In RStudio: File > New File > R Markdown
+2. Write your text and embed your code
+4. Click 'Knit' to render the document
+5. It outputs to your working directory
