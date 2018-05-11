@@ -1,6 +1,6 @@
 ---
 title: "Automate! Reproduce! Win!"
-subtitle: "RMarkdown"
+subtitle: "R Markdown for reproducible documents"
 author: "Matt Dray"
 date: "14 May 2018"
 output:
@@ -10,70 +10,118 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, error = FALSE)
-library(dplyr)
-library(leaflet)
+library(dplyr); library(knitr); library(ggplot2)
+my_value <- "Lotad"
 ```
 
-## TL;DR
+## The problem is the process
 
-## Why?
+The Excel-Word approach is looooong and error-prone. Exaggerated example:
 
-## Process
+1. Receive non-machine-readable data in Excel format
+2. Use a pre-prepared Excel template to reformat the data
+3. Generate figures, tables and plots
+4. Copy and paste to ~100-page Word document
+5. Find error/need to alter something
+6. Fix it
+7. Spend ages re-copy-pasting the updated bits
+8. Get confused about the current working version
+9. Repeat steps 5 to 7 until 4am
 
-1. Open a file with the .Rmd (<u>R</u> <u>M</u>ark<u>d</u>own) extension
-2. Write your report using R Markdown
-3. Embed code that calculates values or produces plots and tables, for example
-4. Use the `knitr` package to *knit* the document, rendering your R Markdown into a 'proper' document for sharing
+## Minimise the risk
 
-## Open
+We can reduce human error and go faster with R.
 
-File > New File > R Markdown
+1. Receive machine-readable data in Excel format
+2. Run a pre-prepared R Markdown file
+3. Make minor tweaks if needed and re-render stress-free
+4. Use the saved time to prepare more informative commentary and have a cup of tea
 
-## Write
+## What's R Markdown?
 
-Plain text that's been 'marked-up'
+- Write plain text in a .Rmd file
+- Format it with symbols (`*`, `[]`, `^`, etc)
+- Embed your R code
+- Render to an output HTML, Word or PDF document
 
-## Output
+In RStudio: Help > Cheatsheets for hints and tips.
 
-YAML
+## R Markdown formatting
 
-# code
+You type:
 
-## inline
+```
+*Italic*, **bold** super^script^ and a [link](www.gov.uk).
+```
 
-## chunks
+You get:
+
+> *Italic*, **bold**, super^script^ and a [link](www.gov.uk).
+<p>
+
+
+## Inline code
+
+You can write some R code in the middle of a sentence! 
+
+Wrap the code in backticks (the button under the Esc key) and start it with the letter `r`.
+
+You type:
+
+```{r eval=FALSE, echo=TRUE}
+The answer to 1 + 1 is `r 1 + 1`
+```
+
+You get:
+
+> The answer to 1 + 1 is `r 1 + 1`
+
+## Inline code
+
+Let's say `my_value <- "Lotad"`
+
+You type:
+
+```{r eval=FALSE, echo=TRUE}
+The best Pokemon is `r my_value`
+```
+
+You get:
+
+> The best Pokemon is `r my_value`
+
+## Code chunks
+
+You type:
 
 ````
-```{r quake-map}`r ''`
-library(leaflet)
-library(dplyr)
+Here's an important plot of chick weights and feed types.
 
-quakes %>%
-  dplyr::slice(1:10) %>%
-  leaflet::leaflet() %>%
-  leaflet::addProviderTiles(providers$OpenStreetMap) %>%
-  leaflet::addMarkers(popup = ~paste("Magnitude", mag))
+```{r chicks}`r ''`
+chickwts %>%
+  group_by(feed) %>% 
+  ggplot() +
+  geom_col(aes(x = feed, y = weight))
 ```
 ````
 
-## chunks
+## Code chunks
 
-```{r}
-quakes %>% 
-  dplyr::slice(1:10) %>%
-  leaflet::leaflet() %>%
-  leaflet::addProviderTiles(providers$OpenStreetMap) %>% 
-  leaflet::addMarkers(popup = ~paste("Magnitude", mag))
+You get:
+
+> Here's an important table of chick weights and feed types.
+
+```{r chicks}
+chickwts %>%
+  group_by(feed) %>% 
+  ggplot() +
+  geom_col(aes(x = feed, y = weight))
 ```
 
-## chunks
+## Basic process
 
-```{r echo=TRUE}
-iris %>%
-  dplyr::select(Species, Petal.Length, Sepal.Length) %>% 
-  dplyr::slice(1:5)
-```
+I assume you're using RStudio.
 
-## Render
-
-Hit 'knit'
+1. File > New File > R Markdown
+2. Write your text and embed your code.
+4. Render the document
