@@ -19,7 +19,9 @@ my_value <- "Lotad"
 * Who's used R?
 * Who's used RMarkdown?
 
-This talk isn't about coding.
+This talk is for *beginners*.
+
+It isn't about how to code.
 
 It's about improving what we do.
 
@@ -69,7 +71,9 @@ A document with filetype .Rmd in which you:
 * embed R code to read, process and visualise data
 * click a button to render it to a HTML, Word or PDF
 
+<div class="notes">
 This is already being done in the department and across government ([Reproducible Analytical Pipelines](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/)).
+<p>
 
 ## What does it look like?
 
@@ -82,6 +86,8 @@ This is already being done in the department and across government ([Reproducibl
 ## Header
 
 Enclosed in three hyphens. Specify metadata and what output should be produced.
+
+There's also space for some style information.
 
 ```
 ---
@@ -115,6 +121,12 @@ You get:
 
 > *Italic*, **bold**, super^script^ and a [link](www.gov.uk).
 
+<div class="notes">
+If you type these in RStudio, the text will change colour to indicate the formatting.
+
+<img src="img/format-colour.PNG" width="100%" alt="Text highlighting in R Studio">
+</div>
+
 
 ## Body text: inline code (maths)
 
@@ -131,6 +143,11 @@ The answer to 1 + 1 is `r 1 + 1`
 You get:
 
 > The answer to 1 + 1 is `r 1 + 1`
+
+<div class="notes">
+You start with the letter `r` to indicate that R code is contained within the backticks.
+</div>
+
 
 ## Body text: inline code (stored values)
 
@@ -166,6 +183,8 @@ chickwts %>%
   geom_col(aes(x = feed, y = weight))
 ```
 ````
+
+Don't worry about the code, just know that it's going to produce something.
 
 ## Code chunks: output
 
