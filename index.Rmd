@@ -54,7 +54,7 @@ Questions to ask yourself:
 
 ## Minimise the risk
 
-We can reduce error and go faster with R Markdown.
+We can reduce error and go faster with R.
 
 1. Receive machine-readable data in Excel format
 2. Run a pre-prepared file written with **R Markdown**
