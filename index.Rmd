@@ -14,6 +14,21 @@ library(dplyr); library(knitr); library(ggplot2)
 my_value <- "Lotad"
 ```
 
+## Hello
+
+* Who's used R?
+* Who's used RMarkdown?
+
+This talk isn't about coding.
+
+It's about improving what we do.
+
+<div class="notes">
+R training sessions are coming!
+
+Materials are available from the [R Training Course site](https://dfe-analytical-services.github.io/r-training-course/).
+</div>
+
 ## The problem is the process
 
 The Excel-Word approach is looooong and error-prone. Exaggerated example:
@@ -28,31 +43,67 @@ The Excel-Word approach is looooong and error-prone. Exaggerated example:
 8. Get confused about the current working version
 9. Repeat steps 5 to 7 until 4am
 
-<div class="notes">
-Your choice of Pokemon is *wrong*.
-</div>
+## Is this reproducible?
+
+Questions to ask yourself:
+
+* are the steps recorded?
+* what's the chance of human error (e.g. bad copy-paste)?
+* is it easy to keep track of changes?
+* could someone else reproduce it from scratch independently?
 
 ## Minimise the risk
 
-We can reduce human error and go faster with R.
+We can reduce error and go faster with R Markdown.
 
 1. Receive machine-readable data in Excel format
-2. Run a pre-prepared R Markdown file
+2. Run a pre-prepared file written with **R Markdown**
 3. Make minor tweaks if needed and re-render stress-free
 4. Use the saved time to prepare more informative commentary and have a cup of tea
 
-## R Markdown is the answer
+## What's an R Markdown file?
 
-- Write plain text in a .Rmd file
-- 'Mark up' with symbols (`*`, `[]`, `^`, etc)
-- Embed your R code
-- Render to an output HTML, Word or PDF document
+A document with filetype .Rmd in which you:
 
-.Rmd `r emo::ji("arrow_right")` `knitr` `r emo::ji("arrow_right")` .md `r emo::ji("arrow_right")`  `pandoc` `r emo::ji("arrow_right")` .html/.pdf/.docx
+* write plain text that's 'marked-up' with symbols (`*`, `[]`, `^`, etc)
+* embed R code to read, process and visualise data
+* click a button to render it to a HTML, Word or PDF
 
-In RStudio: Help > Cheatsheets for hints and tips.
+This is already being done in the department and across government ([Reproducible Analytical Pipelines](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/)).
 
-## R Markdown formatting
+## What does it look like?
+
+<img src="img/example-rmd-rstudio.PNG" width="100%" alt="RStudio window showing example R Markdown file on the left and the rendered output on the right">
+
+## What does it look like?
+
+<img src="img/example-rmd-rstudio-notes.jpg" width="100%" alt="RStudio window showing example R Markdown file on the left ('header', 'text' and 'code chunk' highlighted) and the rendered output on the right">
+
+## Header
+
+Enclosed in three hyphens. Specify metadata and what output should be produced.
+
+```
+---
+title: "Your title"
+author: "Your name"
+date: "The date"
+output:
+  word_document:
+    reference_docx: mystyles.docx
+    highlight: "tango"
+---
+
+```
+
+<div class="notes">
+The header section doesn't contain R code.
+
+It's a language called YAML, which stands for *Yet Another Markup Language*!
+</div>
+
+
+## Body text: formatting
 
 You type:
 
@@ -65,7 +116,7 @@ You get:
 > *Italic*, **bold**, super^script^ and a [link](www.gov.uk).
 
 
-## Inline code
+## Body text: inline code (maths)
 
 You can write some R code in the middle of a sentence! 
 
@@ -81,7 +132,7 @@ You get:
 
 > The answer to 1 + 1 is `r 1 + 1`
 
-## Inline code
+## Inline code (stored values)
 
 Let's say `my_value <- "Lotad"`
 
@@ -93,13 +144,15 @@ The best Pokemon is `r my_value`
 
 <div class="notes">
 Your choice of Pokemon is *wrong*.
+
+<img src="https://cdn.bulbagarden.net/upload/thumb/2/2c/Lotad_PMRS.png/200px-Lotad_PMRS.png" width="75%" alt"The mighty Pokemon Lotad is held aloft by an excited fellow">
 </div>
 
 You get:
 
 > The best Pokemon is `r my_value`
 
-## Code chunks
+## Code chunks: input
 
 You type:
 
@@ -114,7 +167,7 @@ chickwts %>%
 ```
 ````
 
-## Code chunks
+## Code chunks: output
 
 You get:
 
@@ -127,9 +180,33 @@ chickwts %>%
   geom_col(aes(x = feed, y = weight))
 ```
 
-## How to
+## Simple steps
 
 1. In RStudio: File > New File > R Markdown
 2. Write your text and embed your code
 4. Click 'Knit' to render the document
-5. It outputs to your working directory
+5. The file is output to your current working directory
+
+**DEMO TIME!**
+
+## To summarise
+
+<img src="img/knit-button.jpg" width="70%" alt="RStudio window with 'Knit' button highlighted abnd content of RMarkdown tab shown">
+
+## What's actually hapening?
+
+Your R Markdown is rendered into 'plain' markdown by the package `knitr` (hence why you 'knit' to render the document), then something called `pandoc` converts it from markdown to your output format.
+
+.Rmd `r emo::ji("arrow_right")` `knitr` `r emo::ji("arrow_right")` .md `r emo::ji("arrow_right")`  `pandoc` `r emo::ji("arrow_right")` .html/.pdf/.docx
+
+This isn't *essential* knowledge.
+
+
+## Further reading
+
+* In RStudio: Help > Cheatsheets for hints and tips.
+* [Introduction to R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) (webpages featuring video)
+* [Getting started with R Markdown](https://www.rstudio.com/resources/webinars/getting-started-with-r-markdown/) (video, 1 hr)
+* [See the R Markdown gallery for examples of other document types](https://rmarkdown.rstudio.com/gallery.html), including dashboards, interactive documents, presentations (like this one) and books with R Markdown
+* '[Knitting club](https://matt-dray.github.io/knitting-club/)', a Coffee & Coding session (webpage)
+* A workflow with R Markdown works much better using an [R Project](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) and [version control](http://happygitwithr.com/), which are subjects for another day 
