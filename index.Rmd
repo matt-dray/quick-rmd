@@ -132,7 +132,7 @@ You get:
 
 > The answer to 1 + 1 is `r 1 + 1`
 
-## Inline code (stored values)
+## Body text: inline code (stored values)
 
 Let's say `my_value <- "Lotad"`
 
