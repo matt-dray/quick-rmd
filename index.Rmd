@@ -190,7 +190,7 @@ Don't worry about the code, just know that it's going to produce something.
 
 You get:
 
-> Here's an important table of chick weights and feed types.
+> Here's an important plot of chick weights and feed types.
 
 ```{r chicks}
 chickwts %>%
