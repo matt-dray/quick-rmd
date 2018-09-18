@@ -2,19 +2,24 @@
 title: "Intro to R Markdown"
 subtitle: "Automate! Reproduce! Win!"
 author: "Matt Dray"
-date: "14 May 2018"
+date: "First presented 14 May 2018"
 output:
-  ioslides_presentation:
-    theme: cerulean
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, error = FALSE)
+options(htmltools.dir.version = FALSE)
 library(dplyr); library(knitr); library(ggplot2)
 my_value <- "Lotad"
 ```
 
-## Hello
+
+# Hello
 
 * Who's used R?
 * Who's used RMarkdown?
@@ -25,13 +30,15 @@ It isn't about how to code.
 
 It's about improving what we do.
 
-<div class="notes">
+???
+
 R training sessions are coming!
 
 Materials are available from the [R Training Course site](https://dfe-analytical-services.github.io/r-training-course/).
-</div>
 
-## The problem is the process
+---
+
+# The problem is the process
 
 The Excel-Word approach is looooong and error-prone. Exaggerated example:
 
@@ -45,7 +52,9 @@ The Excel-Word approach is looooong and error-prone. Exaggerated example:
 8. Get confused about the current working version
 9. Repeat steps 5 to 7 until 4am
 
-## Is this reproducible?
+---
+
+# Is this reproducible?
 
 Questions to ask yourself:
 
@@ -54,7 +63,9 @@ Questions to ask yourself:
 * is it easy to keep track of changes?
 * could someone else reproduce it from scratch independently?
 
-## Minimise the risk
+---
+
+# Minimise the risk
 
 We can reduce error and go faster with R.
 
@@ -63,7 +74,9 @@ We can reduce error and go faster with R.
 3. Make minor tweaks if needed and re-render stress-free
 4. Use the saved time to prepare more informative commentary and have a cup of tea
 
-## What's an R Markdown file?
+---
+
+# What's an R Markdown file?
 
 A document with filetype .Rmd in which you:
 
@@ -71,19 +84,25 @@ A document with filetype .Rmd in which you:
 * embed R code to read, process and visualise data
 * click a button to render it to a HTML, Word or PDF
 
-<div class="notes">
-This is already being done in the department and across government ([Reproducible Analytical Pipelines](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/)).
-<p>
+???
 
-## What does it look like?
+This is already being done in the department and across government ([Reproducible Analytical Pipelines](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/)).
+
+---
+
+# What does it look like?
 
 <img src="img/example-rmd-rstudio.PNG" width="100%" alt="RStudio window showing example R Markdown file on the left and the rendered output on the right">
 
-## What does it look like?
+---
+
+# What does it look like?
 
 <img src="img/example-rmd-rstudio-notes.jpg" width="100%" alt="RStudio window showing example R Markdown file on the left ('header', 'text' and 'code chunk' highlighted) and the rendered output on the right">
 
-## Header
+---
+
+# Header
 
 Enclosed in three hyphens. Specify metadata and what output should be produced.
 
@@ -102,14 +121,15 @@ output:
 
 ```
 
-<div class="notes">
+???
+
 The header section doesn't contain R code.
 
 It's a language called YAML, which stands for *Yet Another Markup Language*!
-</div>
 
+---
 
-## Body text: formatting
+# Body text: formatting
 
 You type:
 
@@ -121,14 +141,15 @@ You get:
 
 > *Italic*, **bold**, super^script^ and a [link](www.gov.uk).
 
-<div class="notes">
+???
+
 If you type these in RStudio, the text will change colour to indicate the formatting.
 
 <img src="img/format-colour.PNG" width="100%" alt="Text highlighting in R Studio">
-</div>
 
+---
 
-## Body text: inline code (maths)
+# Body text: inline code (maths)
 
 You can write some R code in the middle of a sentence! 
 
@@ -144,12 +165,13 @@ You get:
 
 > The answer to 1 + 1 is `r 1 + 1`
 
-<div class="notes">
+???
+
 You start with the letter `r` to indicate that R code is contained within the backticks.
-</div>
 
+---
 
-## Body text: inline code (stored values)
+# Body text: inline code (stored values)
 
 Let's say `my_value <- "Lotad"`
 
@@ -159,24 +181,23 @@ You type:
 The best Pokemon is `r my_value`
 ```
 
-<div class="notes">
+???
+
 Your choice of Pokemon is *wrong*.
 
 <img src="https://cdn.bulbagarden.net/upload/thumb/2/2c/Lotad_PMRS.png/200px-Lotad_PMRS.png" width="75%" alt"The mighty Pokemon Lotad is held aloft by an excited fellow">
-</div>
 
 You get:
 
 > The best Pokemon is `r my_value`
 
-## Code chunks: input
+---
 
-You type:
+# Code chunks: input
 
 ````
-Here's an important plot of chick weights and feed types.
 
-```{r chicks}`r ''`
+```{r chicks, echo=FALSE}`r ''`
 chickwts %>%
   group_by(feed) %>% 
   ggplot() +
@@ -186,20 +207,20 @@ chickwts %>%
 
 Don't worry about the code, just know that it's going to produce something.
 
-## Code chunks: output
+---
 
-You get:
+# Code chunks: output
 
-> Here's an important plot of chick weights and feed types.
-
-```{r chicks}
+```{r chicks, echo=FALSE}
 chickwts %>%
   group_by(feed) %>% 
   ggplot() +
   geom_col(aes(x = feed, y = weight))
 ```
 
-## Simple steps
+---
+
+# Simple steps
 
 1. In RStudio: File > New File > R Markdown
 2. Write your text and embed your code
@@ -208,11 +229,15 @@ chickwts %>%
 
 **DEMO TIME!**
 
-## To summarise
+---
+
+# To summarise
 
 <img src="img/knit-button.jpg" width="70%" alt="RStudio window with 'Knit' button highlighted abnd content of RMarkdown tab shown">
 
-## What's actually hapening?
+---
+
+# What's actually hapening?
 
 Your R Markdown is rendered into 'plain' markdown by the package `knitr` (hence why you 'knit' to render the document), then something called `pandoc` converts it from markdown to your output format.
 
@@ -220,9 +245,11 @@ Your R Markdown is rendered into 'plain' markdown by the package `knitr` (hence 
 
 This isn't *essential* knowledge.
 
+---
 
-## Further reading
+# Further reading
 
+* [R Markdown: The Defninitive Guide](https://bookdown.org/yihui/rmarkdown/) by Yihui Xie, JJ Allaire and Garrett Grolemund
 * In RStudio: Help > Cheatsheets for hints and tips.
 * [Introduction to R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) (webpages featuring video)
 * [Getting started with R Markdown](https://www.rstudio.com/resources/webinars/getting-started-with-r-markdown/) (video, 1 hr)
